@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Ship Order Schema",
+  "description": "Schema for shipping order data",
+  "properties": {
+    "OrderId": {
+      "type": "string",
+      "description": "Unique identifier for the order"
+    },
+    "OrderPerson": {
+      "type": "string",
+      "description": "Person who placed the order"
+    },
+    "ShipTo": {
+      "type": "object",
+      "description": "Shipping address information",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "Name of the recipient"
+        },
+        "Address": {
+          "type": "string",
+          "description": "Street address"
+        },
+        "City": {
+          "type": "string",
+          "description": "City name"
+        },
+        "State": {
+          "type": "string",
+          "description": "State or province"
+        },
+        "Country": {
+          "type": "string",
+          "description": "Country code or name"
+        }
+      },
+      "required": ["Name", "Address", "City", "State", "Country"],
+      "additionalProperties": false
+    },
+    "Item": {
+      "type": "array",
+      "description": "List of items in the order",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Title": {
+            "type": "string",
+            "description": "Item title or name"
+          },
+          "Quantity": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Quantity of the item"
+          },
+          "Price": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Price of the item"
+          }
+        },
+        "required": ["Title", "Quantity", "Price"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["OrderId", "OrderPerson", "ShipTo", "Item"],
+  "additionalProperties": false
+}

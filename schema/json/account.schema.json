@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Account Schema",
+  "description": "Schema for account data",
+  "properties": {
+    "AccountId": {
+      "type": "string",
+      "description": "Unique identifier for the account"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Name of the account holder"
+    },
+    "Address": {
+      "type": "object",
+      "description": "Address information",
+      "properties": {
+        "Street": {
+          "type": "string",
+          "description": "Street address"
+        },
+        "City": {
+          "type": "string",
+          "description": "City name"
+        },
+        "State": {
+          "type": "string",
+          "description": "State or province"
+        },
+        "Country": {
+          "type": "string",
+          "description": "Country code or name"
+        }
+      },
+      "required": ["Street", "City", "State", "Country"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["AccountId", "Name", "Address"],
+  "additionalProperties": false
+}

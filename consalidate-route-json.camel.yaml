@@ -1,0 +1,110 @@
+- route:
+    id: route-1171
+    description: Multi-Json-Sources
+    from:
+      id: from-4617
+      uri: timer
+      parameters:
+        delay: "2000"
+        period: "5000"
+        timerName: template
+      steps:
+        - to:
+            id: to-1567
+            uri: direct
+            parameters:
+              name: GetAccount
+        - to:
+            id: to-1417
+            uri: direct
+            parameters:
+              name: GetCart
+        - step:
+            id: kaoto-datamapper-f45bd9e6
+            steps:
+              - to:
+                  id: kaoto-datamapper-xslt-1808
+                  uri: xslt-saxon:kaoto-datamapper-f45bd9e6.xsl
+                  parameters:
+                    failOnNullBody: false
+        - log:
+            id: log-3908
+            message: ${body}
+- route:
+    id: GetAccount
+    from:
+      id: from-1620
+      uri: direct
+      parameters:
+        name: GetAccount
+      steps:
+        - to:
+            id: to-1815
+            uri: rest
+            parameters:
+              consumes: application/json
+              host: http://demo6649830.mockable.io
+              method: get
+              path: /getaccount
+        - log:
+            id: log-3908-1577
+            message: ${body}
+        - setVariable:
+            id: setVariable-2581
+            disabled: false
+            name: Account
+            simple:
+              expression: ${body}
+              resultType: String
+        - convertVariableTo:
+            id: convertVariableTo-3000
+            disabled: true
+            name: Account
+            type: String
+- route:
+    id: GetCart
+    from:
+      id: "1111"
+      uri: direct
+      parameters:
+        name: GetCart
+      steps:
+        - setBody:
+            id: setBody-1447
+            simple:
+              expression: ${null}
+        - removeHeaders:
+            id: removeHeaders-3411
+            pattern: "*"
+        - to:
+            id: to-1730
+            uri: rest
+            parameters:
+              consumes: application/json
+              host: http://demo6649830.mockable.io
+              method: get
+              path: /getcart
+        - log:
+            id: log-3908-1577-3214-9220-9706-1026
+            message: ${body}
+        - setVariable:
+            id: setVariable-3862
+            name: Cart
+            simple:
+              expression: ${body}
+              resultType: String
+        - setBody:
+            id: setBody-1447-4169
+            simple:
+              expression: ${null}
+              resultType: String
+        - setVariable:
+            id: setVariable-3409
+            name: OrderSequence
+            simple:
+              expression: ${date:now:YYYYMMDDHHMMssSSS}
+        - convertVariableTo:
+            id: convertVariableTo-2854
+            disabled: true
+            name: Cart
+            type: String

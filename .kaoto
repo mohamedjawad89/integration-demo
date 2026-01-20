@@ -1,0 +1,158 @@
+{
+	"kaoto-datamapper-2c993637": {
+		"sourceBody": {
+			"type": "Primitive"
+		},
+		"sourceParameters": {
+			"Account": {
+				"type": "JSON Schema",
+				"filePath": [
+					"schema/json/account.schema.json"
+				]
+			},
+			"Cart": {
+				"type": "JSON Schema",
+				"filePath": [
+					"schema/json/cart.schema.json"
+				]
+			},
+			"OrderSequence": {
+				"type": "Primitive",
+				"filePath": []
+			}
+		},
+		"targetBody": {
+			"type": "JSON Schema",
+			"filePath": [
+				"schema/json/shiporder.schema.json"
+			]
+		},
+		"xsltPath": "kaoto-datamapper-2c993637.xsl"
+	},
+	"kaoto-datamapper-1e24d814": {
+		"sourceBody": {
+			"type": "Primitive"
+		},
+		"sourceParameters": {
+			"Account": {
+				"type": "JSON Schema",
+				"filePath": [
+					"schema/json/account.schema.json"
+				]
+			},
+			"Cart": {
+				"type": "JSON Schema",
+				"filePath": [
+					"schema/json/cart.schema.json"
+				]
+			},
+			"OrderSequence": {
+				"type": "Primitive",
+				"filePath": []
+			}
+		},
+		"targetBody": {
+			"type": "XML Schema",
+			"filePath": [
+				"schema/xml/ShipOrder.xsd"
+			]
+		},
+		"xsltPath": "kaoto-datamapper-1e24d814.xsl"
+	},
+	"kaoto-datamapper-2299a9ac": {
+		"sourceBody": {
+			"type": "XML Schema",
+			"filePath": [
+				"schema/xml/Cart.xsd"
+			]
+		},
+		"sourceParameters": {
+			"Account": {
+				"type": "XML Schema",
+				"filePath": [
+					"schema/xml/Account.xsd"
+				]
+			},
+			"OrderSequence": {
+				"type": "Primitive",
+				"filePath": []
+			}
+		},
+		"targetBody": {
+			"type": "JSON Schema",
+			"filePath": [
+				"schema/json/shiporder.schema.json"
+			]
+		},
+		"xsltPath": "kaoto-datamapper-2299a9ac.xsl"
+	},
+	"kaoto-datamapper-f45bd9e6": {
+		"sourceBody": {
+			"type": "XML Schema",
+			"filePath": [
+				"schema/xml/Cart.xsd"
+			],
+			"fieldTypeOverrides": []
+		},
+		"sourceParameters": {
+			"OrderSequence": {
+				"type": "Primitive",
+				"filePath": [],
+				"fieldTypeOverrides": []
+			},
+			"Account": {
+				"type": "JSON Schema",
+				"filePath": [
+					"schema/json/account.schema.json"
+				],
+				"fieldTypeOverrides": []
+			}
+		},
+		"targetBody": {
+			"type": "JSON Schema",
+			"filePath": [
+				"schema/json/shiporder.schema.json"
+			],
+			"fieldTypeOverrides": []
+		},
+		"xsltPath": "kaoto-datamapper-f45bd9e6.xsl",
+		"namespaceMap": {}
+	},
+	"kaoto-datamapper-2200": {
+		"sourceBody": {
+			"type": "Primitive",
+			"filePath": [],
+			"fieldTypeOverrides": []
+		},
+		"sourceParameters": {
+			"Account": {
+				"type": "XML Schema",
+				"filePath": [
+					"schema/xml/Account.xsd"
+				],
+				"fieldTypeOverrides": []
+			},
+			"Cart": {
+				"type": "XML Schema",
+				"filePath": [
+					"schema/xml/Cart.xsd"
+				],
+				"fieldTypeOverrides": []
+			},
+			"OrderSequence": {
+				"type": "Primitive",
+				"filePath": [],
+				"fieldTypeOverrides": []
+			}
+		},
+		"targetBody": {
+			"type": "JSON Schema",
+			"filePath": [
+				"schema/json/shiporder.schema.json"
+			],
+			"fieldTypeOverrides": []
+		},
+		"xsltPath": "route-6400-kaoto-datamapper-2200.xsl",
+		"namespaceMap": {}
+	}
+}

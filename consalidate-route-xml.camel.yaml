@@ -1,0 +1,111 @@
+- route:
+    id: route-6400
+    from:
+      id: from-9093
+      uri: timer
+      parameters:
+        delay: "1000"
+        period: "3000"
+        timerName: template
+      steps:
+        - to:
+            id: to-3314
+            uri: direct
+            parameters:
+              name: GetAccount
+        - to:
+            id: to-2267
+            uri: direct
+            parameters:
+              name: GetCart
+        - setVariable:
+            id: setVariable-3409-1576
+            name: OrderSequence
+            simple:
+              expression: ${date:now:YYYYMMDDHHMMssSSS}
+        - log:
+            id: log-3112
+            message: ${body}
+        - step:
+            id: kaoto-datamapper-2200
+            steps:
+              - to:
+                  id: kaoto-datamapper-xslt-8793
+                  uri: xslt-saxon:route-6400-kaoto-datamapper-2200.xsl
+                  parameters: {}
+        - log:
+            id: log-1837
+            message: ${body}
+- route:
+    id: GetAccount
+    from:
+      id: from-1620
+      uri: direct
+      parameters:
+        name: GetAccount
+      steps:
+        - setVariable:
+            id: setVariable-2581
+            expression:
+              simple:
+                expression: |-
+                  <Account AccountId="acc001">
+                    <Name>Tomo</Name>
+                    <Address>314 Littleton Rd</Address>
+                    <City>Westford</City>
+                    <Country>US</Country>
+                  </Account>
+            name: Account
+        - convertVariableTo:
+            id: convertVariableTo-3000
+            name: Account
+            type: org.w3c.dom.Document
+- route:
+    id: GetCart
+    from:
+      id: "1111"
+      uri: direct
+      parameters:
+        name: GetCart
+      steps:
+        - setBody:
+            id: setBody-3291
+            simple:
+              expression: |-
+                <Cart>
+                  <Item>
+                    <Title>Apple</Title>
+                    <Note>Fuji</Note>
+                    <Quantity>10</Quantity>
+                    <Price>5.00</Price>
+                  </Item>
+                  <Item>
+                    <Title>Banana</Title>
+                    <Note>Philippines</Note>
+                    <Quantity>5</Quantity>
+                    <Price>16.05</Price>
+                  </Item>
+                </Cart>
+        - convertBodyTo:
+            id: convertBodyTo-2826
+            type: org.w3c.dom.Document
+        - setVariable:
+            id: setVariable-3983
+            disabled: true
+            name: Cart
+            simple:
+              expression: |-
+                <Cart>
+                  <Item>
+                    <Title>Apple</Title>
+                    <Note>Fuji</Note>
+                    <Quantity>10</Quantity>
+                    <Price>5.00</Price>
+                  </Item>
+                  <Item>
+                    <Title>Banana</Title>
+                    <Note>Philippines</Note>
+                    <Quantity>5</Quantity>
+                    <Price>16.05</Price>
+                  </Item>
+                </Cart>

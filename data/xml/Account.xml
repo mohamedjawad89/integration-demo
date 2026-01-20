@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Account AccountId="acc001">
+    <Name>Tomo</Name>
+    <Address>314 Littleton Rd</Address>
+    <City>Westford</City>
+    <State>Massachusetts</State>
+    <Country>US</Country>
+</Account>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ShipOrder xmlns="kaoto" OrderId="ORD-ACC001-1">
+    <OrderPerson>acc001 : Tomo</OrderPerson>
+    <ShipTo xmlns="">
+        <Name>Tomo</Name>
+        <Address>314 Littleton Rd</Address>
+        <City>Westford</City>
+        <Country>US</Country>
+    </ShipTo>
+    <Item xmlns="">
+        <Title>Apple</Title>
+        <Quantity>10</Quantity>
+        <Price>5.00</Price>
+    </Item>
+    <Item xmlns="">
+        <Title>Banana</Title>
+        <Quantity>5</Quantity>
+        <Price>16.05</Price>
+    </Item>
+</ShipOrder>
