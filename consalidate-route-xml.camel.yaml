@@ -36,6 +36,15 @@
         - log:
             id: log-1837
             message: ${body}
+        - to:
+            id: to-2246
+            uri: sql
+            parameters:
+              dataSource: "#PostgresqlDataSource"
+              query: INSERT INTO transactions (timestamp, account, amount) VALUES
+                (:#${headers.timestamp}, :#${headers.account},
+                :#${headers.amount});
+            disabled: true
 - route:
     id: GetAccount
     from:
@@ -109,3 +118,6 @@
                     <Price>16.05</Price>
                   </Item>
                 </Cart>
+- beans:
+    - name: PostgresqlDataSource
+      type: javax.sql.DataSource
